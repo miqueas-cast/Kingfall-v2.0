@@ -275,7 +275,9 @@ namespace Kingfall_v2._0
                             //Sistema de puntajes
                             if (piezaCapturada != null)
                             {
-                                Console.WriteLine($"{jugadorActual.Nombre} capturó un {piezaCapturada.Tipo} del jugador {piezaCapturada.Dueño.Nombre}");
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.WriteLine($"\n⚔️ {jugadorActual.Nombre} capturó un {piezaCapturada.Tipo} de {piezaCapturada.Dueño.Nombre}!");
+                                Console.ResetColor();
                                 Console.ReadKey();
 
                                 // if para determinar cuantas piezas restantes le quedan al jugador
