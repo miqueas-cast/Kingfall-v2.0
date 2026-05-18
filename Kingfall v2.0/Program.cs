@@ -546,7 +546,7 @@ namespace Kingfall_v2._0
                 else if (tecla.Key != ConsoleKey.Enter && contra.Length < 13)
                 {
                     contra += tecla.KeyChar;
-                    Console.Write("*");
+                    Console.Write("•");
                 }
             } while (tecla.Key != ConsoleKey.Enter);
             Console.WriteLine();
