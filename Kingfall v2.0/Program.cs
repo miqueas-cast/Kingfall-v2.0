@@ -12,24 +12,27 @@ namespace Kingfall_v2._0
 
     internal class Program
     {
-        static string[] usuarios = { "jugador1", "jugador2", "jugador3" };
-        static string[] contrasenas = { "Kingfa!!1", "Jugad0r#2", "Jueg0Kingfa!!" }; //Cambie las contraseñas por unas válidas
+        // constraseñas y usuarios predefinidos para el login
+        static string[] usuarios = { "diana", "ivan", "miqueas" };
+        static string[] contrasenas = { "Kingfa!!1", "Jugad0r#2", "Jueg0Kingfa!!" }; 
 
         static void Main(string[] args)
         {  
             // para mostrar flecha en las reglas
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
+            /*
+
             Console.WriteLine("   ▄█   ▄█▄  ▄█  ███▄▄▄▄      ▄██████▄     ▄████████    ▄████████  ▄█        ▄█       \r\n  ███ ▄███▀ ███  ███▀▀▀██▄   ███    ███   ███    ███   ███    ███ ███       ███       \r\n  ███▐██▀   ███▌ ███   ███   ███    █▀    ███    █▀    ███    ███ ███       ███       \r\n ▄█████▀    ███▌ ███   ███  ▄███         ▄███▄▄▄       ███    ███ ███       ███       \r\n▀▀█████▄    ███▌ ███   ███ ▀▀███ ████▄  ▀▀███▀▀▀     ▀███████████ ███       ███       \r\n  ███▐██▄   ███  ███   ███   ███    ███   ███          ███    ███ ███       ███       \r\n  ███ ▀███▄ ███  ███   ███   ███    ███   ███          ███    ███ ███▌    ▄ ███▌    ▄ \r\n  ███   ▀█▀ █▀    ▀█   █▀    ████████▀    ███          ███    █▀  █████▄▄██ █████▄▄██ \r\n  ▀                                                               ▀         ▀         ");
             Thread.Sleep(2500);
             Console.Clear();
 
             //Pantalla de inicio
-            Console.WriteLine("===== BIENVENIDO AL JUEGO ====="); //Solo lo puse para que de un mensaje de bienvenida, pero si quieren lo pueden quitar
-                                                                  //Thread.Sleep(1500);
+            Console.WriteLine("===== BIENVENIDO AL JUEGO ====="); 
+            Thread.Sleep(1500);
             Console.Clear();
 
-
+            
 
             //Login
             string usuario, contrasena;
@@ -66,12 +69,11 @@ namespace Kingfall_v2._0
             Thread.Sleep(2300);
 
             Console.Clear();
-
+            */
 
             // variables globales
 
             string nombrePuntajeMasAlto = "";
-            int puntajeMasAlto = 0;
             int puntajeJugador1 = 0;
             int puntajeJugador2 = 0;
             int piezasRestantesJugador1 = 7;
@@ -93,7 +95,8 @@ namespace Kingfall_v2._0
                         nombrePuntajeMasAlto = "";
                         piezasRestantesJugador1 = 7;
                         piezasRestantesJugador2 = 7;
-                        //tablero
+
+                        //Creación del tablero 
                         Tablero tablero = new Tablero();
 
                         // jugador1 piezas
@@ -197,14 +200,14 @@ namespace Kingfall_v2._0
                         tablero.Casillas[7, 5] = soldado7;
                         tablero.Casillas[7, 6] = torre3;
 
-                        MostrarTablero(tablero);
-                        // 
+                        tablero.MostrarTablero(tablero);
 
                         Jugador jugadorActual = jugador1;
+
                         while (true)
                         {
                             Console.Clear();
-                            MostrarTablero(tablero);
+                            tablero.MostrarTablero(tablero);
                             Console.WriteLine("Turno de: " + jugadorActual.Nombre);
                             Console.WriteLine();
                             Pieza piezaMover;
@@ -221,7 +224,7 @@ namespace Kingfall_v2._0
                                 if (piezaMover == null)
                                 {
                                     Console.Clear();
-                                    MostrarTablero(tablero);
+                                    tablero.MostrarTablero(tablero);
                                     Console.WriteLine("Turno de: " + jugadorActual.Nombre);
                                     Console.WriteLine("No hay pieza en esa posición");
 
@@ -251,18 +254,12 @@ namespace Kingfall_v2._0
                                     Console.ReadKey();
                                     continue;
                                 }
-                                if (piezaMover.Tipo == "Rey" && (Math.Abs(filaDestino - filaOrigen) > 1 || Math.Abs(columnaDestino - columnaOrigen) > 1))
-                                {
-                                    Console.WriteLine("El rey solo puede moverse una casilla en cualquier dirección");
-                                    Console.ReadKey();
-                                    continue;
-                                }
                                 break;
 
                             } while (true);
 
                             // función para validar el movimiento por tipo de pieza
-                            bool movimientoValido = MovimientoValidoPorTipo(piezaMover, filaOrigen, columnaOrigen, filaDestino, columnaDestino, tablero);
+                            bool movimientoValido = piezaMover.MovimientoValidoPorTipo(filaOrigen, columnaOrigen, filaDestino, columnaDestino, tablero);
 
                             if (!movimientoValido)
                             {
@@ -305,7 +302,7 @@ namespace Kingfall_v2._0
                                     }
 
                                     Console.Clear();
-                                    MostrarTablero(tablero);
+                                    tablero.MostrarTablero(tablero);
                                     Console.WriteLine($"El jugador {jugadorActual.Nombre} ha ganado porque capturó al Rey");
                                     break;
                                 }
@@ -324,7 +321,7 @@ namespace Kingfall_v2._0
                                 if (piezasRestantesJugador1 == 0)
                                 {
                                     Console.Clear();
-                                    MostrarTablero(tablero);
+                                    tablero.MostrarTablero(tablero);
                                     Console.WriteLine($"El jugador {jugador2.Nombre} ha ganado la partida");
                                     break;
                                 }
@@ -332,7 +329,7 @@ namespace Kingfall_v2._0
                                 if (piezasRestantesJugador2 == 0)
                                 {
                                     Console.Clear();
-                                    MostrarTablero(tablero);
+                                    tablero.MostrarTablero(tablero);
                                     Console.WriteLine($"El jugador {jugador1.Nombre} ha ganado la partida");
                                     break;
                                 }
@@ -409,13 +406,13 @@ namespace Kingfall_v2._0
                 if (!esValido)
                 {
                     Console.Clear();
-                    MostrarTablero(tablero);
+                    tablero.MostrarTablero(tablero);
                     Console.WriteLine($"Por favor ingrese una posición valida");
                 }
                 if (esValido && (valor < min || valor > max))
                 {
                     Console.Clear();
-                    MostrarTablero(tablero);
+                    tablero.MostrarTablero(tablero);
                     Console.WriteLine($"Posición fuera del rango");
                     esValido = false;
                 }
@@ -496,7 +493,98 @@ namespace Kingfall_v2._0
             Console.WriteLine();
             return contra;
         }
-        static void MostrarTablero(Tablero tablero)
+        
+
+
+        
+
+    }
+    class Jugador
+    {
+        public string Nombre;
+        public int Numero;
+        public int puntos;
+
+    }
+    class Pieza
+    {
+        public string Tipo;
+        public char Simbolo;
+        public Jugador Dueño;
+
+        public bool MovimientoValidoPorTipo(int filaOrigen, int columnaOrigen, int filaDestino, int columnaDestino, Tablero tablero)
+        {
+            if (Tipo == "Rey")
+            {
+                return MovimientoValidoRey(filaOrigen, columnaOrigen, filaDestino, columnaDestino, tablero);
+            }
+            else if (Tipo == "Torre")
+            {
+                return MovimientoValidoTorre(filaOrigen, columnaOrigen, filaDestino, columnaDestino, tablero);
+            }
+            else if (Tipo == "Soldado")
+            {
+                return MovimientoValidoSoldado(filaOrigen, columnaOrigen, filaDestino, columnaDestino, tablero);
+            }
+
+            return false;
+        }
+        private bool MovimientoValidoRey(int filaOrigen, int columnaOrigen, int filaDestino, int columnaDestino, Tablero tablero)
+        {
+            int diferenciaFila = Math.Abs(filaDestino - filaOrigen);
+            int diferenciaColumna = Math.Abs(columnaDestino - columnaOrigen);
+
+            return diferenciaFila <= 1 && diferenciaColumna <= 1;
+        }
+
+        private bool MovimientoValidoTorre(int filaOrigen, int columnaOrigen, int filaDestino, int columnaDestino, Tablero tablero)
+        {
+            bool mismaFila = filaOrigen == filaDestino;
+            bool mismaColumna = columnaOrigen == columnaDestino;
+
+            if (!mismaFila && !mismaColumna)
+            {
+                return false;
+            }
+
+            return tablero.CaminoLibre(filaOrigen, columnaOrigen, filaDestino, columnaDestino);
+        }
+
+        private bool MovimientoValidoSoldado(int filaOrigen, int columnaOrigen, int filaDestino, int columnaDestino, Tablero tablero)
+        {
+            int direccion;
+
+            if (Dueño.Numero == 1)
+            {
+                direccion = 1;
+            }
+            else
+            {
+                direccion = -1;
+            }
+
+            int diferenciaFila = filaDestino - filaOrigen;
+            int diferenciaColumna = columnaDestino - columnaOrigen;
+
+            Pieza piezaDestino = tablero.Casillas[filaDestino, columnaDestino];
+
+            bool avanzaRecto = diferenciaFila == direccion &&
+                               diferenciaColumna == 0 &&
+                               piezaDestino == null;
+
+            bool atacaDiagonal = diferenciaFila == direccion &&
+                                 Math.Abs(diferenciaColumna) == 1 &&
+                                 piezaDestino != null &&
+                                 piezaDestino.Dueño != Dueño;
+
+            return avanzaRecto || atacaDiagonal;
+        }
+    }
+    class Tablero
+    {
+        public Pieza[,] Casillas = new Pieza[8, 8];
+
+        public void MostrarTablero(Tablero tablero)
         {
             Console.Write("    ");
             for (int columna = 0; columna < 8; columna++)
@@ -528,51 +616,7 @@ namespace Kingfall_v2._0
                 Console.WriteLine();
             }
         }
-
-
-        //función principal para validar movimiento por tipo
-        static bool MovimientoValidoPorTipo(Pieza piezaMover, int filaOrigen, int columnaOrigen, int filaDestino, int columnaDestino, Tablero tablero)
-        {
-            if (piezaMover.Tipo == "Rey")
-            {
-
-                return MovimientoValidoRey(filaOrigen, columnaOrigen, filaDestino, columnaDestino);
-            }
-            else if (piezaMover.Tipo == "Torre")
-            {
-                return MovimientoValidoTorre(filaOrigen, columnaOrigen, filaDestino, columnaDestino, tablero);
-
-            }
-            else if (piezaMover.Tipo == "Soldado")
-            {
-                return MovimientoValidoSoldado(piezaMover, filaOrigen, columnaOrigen, filaDestino, columnaDestino, tablero);
-            }
-
-            return false;
-        }
-
-        // movimiento del rey
-        static bool MovimientoValidoRey(int filaOrigen, int columnaOrigen, int filaDestino, int columnaDestino)
-        {
-            int diferenciaFila = Math.Abs(filaDestino - filaOrigen);
-            int diferenciaColumna = Math.Abs(columnaDestino - columnaOrigen);
-
-            return diferenciaFila <= 1 && diferenciaColumna <= 1;
-        }
-
-        //movimiento de la torre
-        static bool MovimientoValidoTorre(int filaOrigen, int columnaOrigen, int filaDestino, int columnaDestino, Tablero tablero)
-        {
-            bool mismaFila = filaOrigen == filaDestino;
-            bool mismaColumna = columnaOrigen == columnaDestino;
-
-            if (!mismaFila && !mismaColumna)
-            {
-                return false;
-            }
-            return CaminoLibre(filaOrigen, columnaOrigen, filaDestino, columnaDestino, tablero);
-        }
-        static bool CaminoLibre(int filaOrigen, int columnaOrigen, int filaDestino, int columnaDestino, Tablero tablero)
+        public bool CaminoLibre(int filaOrigen, int columnaOrigen, int filaDestino, int columnaDestino)
         {
             int avanceFila = 0;
             int avanceColumna = 0;
@@ -600,7 +644,7 @@ namespace Kingfall_v2._0
 
             while (filaActual != filaDestino || columnaActual != columnaDestino)
             {
-                if (tablero.Casillas[filaActual, columnaActual] != null)
+                if (Casillas[filaActual, columnaActual] != null)
                 {
                     return false;
                 }
@@ -611,54 +655,5 @@ namespace Kingfall_v2._0
 
             return true;
         }
-
-        //movimiento del soldado
-        static bool MovimientoValidoSoldado(Pieza piezaMover, int filaOrigen, int columnaOrigen, int filaDestino, int columnaDestino, Tablero tablero)
-        {
-            int direccion;
-
-            if (piezaMover.Dueño.Numero == 1)
-            {
-                direccion = 1;
-            }
-            else
-            {
-                direccion = -1;
-            }
-
-            int diferenciaFila = filaDestino - filaOrigen;
-            int diferenciaColumna = columnaDestino - columnaOrigen;
-
-            Pieza piezaDestino = tablero.Casillas[filaDestino, columnaDestino];
-
-            bool avanzaRecto = diferenciaFila == direccion &&
-                               diferenciaColumna == 0 &&
-                               piezaDestino == null;
-
-            bool atacaDiagonal = diferenciaFila == direccion &&
-                                 Math.Abs(diferenciaColumna) == 1 &&
-                                 piezaDestino != null &&
-                                 piezaDestino.Dueño != piezaMover.Dueño;
-
-            return avanzaRecto || atacaDiagonal;
-        }
-
-    }
-    class Jugador
-    {
-        public string Nombre;
-        public int Numero;
-        public int puntos;
-
-    }
-    class Pieza
-    {
-        public string Tipo;
-        public char Simbolo;
-        public Jugador Dueño;
-    }
-    class Tablero
-    {
-        public Pieza[,] Casillas = new Pieza[8, 8];
     }
 }
