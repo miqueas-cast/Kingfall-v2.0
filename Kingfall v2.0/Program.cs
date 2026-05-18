@@ -30,10 +30,9 @@ namespace Kingfall_v2._0
             Thread.Sleep(1500);
             Console.Clear();
 
-            
             //Login
             string usuario, contrasena;
-
+            
             do
             {
                 Console.Write("Ingrese su usuario: ");
@@ -81,6 +80,8 @@ namespace Kingfall_v2._0
             do
             {
                 Console.Clear();
+                Console.Beep();
+
                 int opcion = ValidacionEntradas($"Menú:\n1. Iniciar partida\r\n2. Ver reglas del juego\r\n3. Ver puntaje más alto\r\n4. Salir\n> ", 1, 4);
                 switch (opcion)
                 {
@@ -549,11 +550,7 @@ namespace Kingfall_v2._0
             } while (tecla.Key != ConsoleKey.Enter);
             Console.WriteLine();
             return contra;
-        }
-        
-
-
-        
+        }  
 
     }
     class Jugador
