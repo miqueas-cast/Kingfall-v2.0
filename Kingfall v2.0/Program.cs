@@ -366,7 +366,64 @@ namespace Kingfall_v2._0
 
                         break;
                     case 2:
-                       
+                        Console.Clear();
+                        Console.WriteLine("╔══════════════════════════════════════════════════════════════╗");
+                        Console.WriteLine("║                     REGLAS DEL JUEGO                         ║");
+                        Console.WriteLine("╚══════════════════════════════════════════════════════════════╝");
+                        Console.WriteLine();
+                        Console.WriteLine("  OBJETIVO");
+                        Console.WriteLine("  ─────────────────────────────────────────────────────────────");
+                        Console.WriteLine("  Capturar el Rey del oponente o eliminar todas sus piezas.");
+                        Console.WriteLine();
+                        Console.WriteLine("  PIEZAS DE CADA JUGADOR");
+                        Console.WriteLine("  ─────────────────────────────────────────────────────────────");
+                        Console.WriteLine("  · 1 Rey      (R)");
+                        Console.WriteLine("  · 2 Torres   (T)");
+                        Console.WriteLine("  · 4 Soldados (S)");
+                        Console.WriteLine();
+                        Console.WriteLine("  MOVIMIENTOS");
+                        Console.WriteLine("  ─────────────────────────────────────────────────────────────");
+                        Console.WriteLine("  REY     → Se mueve 1 casilla en cualquier dirección");
+                        Console.WriteLine("             (horizontal, vertical o diagonal).");
+                        Console.WriteLine();
+                        Console.WriteLine("  TORRE   → Se mueve en línea recta (horizontal o vertical)");
+                        Console.WriteLine("             cualquier número de casillas.");
+                        Console.WriteLine("             No puede saltar otras piezas.");
+                        Console.WriteLine();
+                        Console.WriteLine("  SOLDADO → Avanza 1 casilla hacia adelante.");
+                        Console.WriteLine("             Ataca en diagonal (1 casilla).");
+                        Console.WriteLine("             No puede retroceder.");
+                        Console.WriteLine();
+                        Console.WriteLine("  CÓMO ATACAR");
+                        Console.WriteLine("  ─────────────────────────────────────────────────────────────");
+                        Console.WriteLine("  Si una pieza se mueve a una casilla ocupada por el rival,");
+                        Console.WriteLine("  la pieza rival es eliminada del tablero.");
+                        Console.WriteLine();
+                        Console.WriteLine("  TURNO");
+                        Console.WriteLine("  ─────────────────────────────────────────────────────────────");
+                        Console.WriteLine("  Los jugadores alternan turnos. En cada turno debes indicar");
+                        Console.WriteLine("  la fila y columna de origen, y la fila y columna de destino.");
+                        Console.WriteLine();
+                        Console.WriteLine("  PROHIBIDO");
+                        Console.WriteLine("  ─────────────────────────────────────────────────────────────");
+                        Console.WriteLine("  · Salir de los límites del tablero.");
+                        Console.WriteLine("  · Mover piezas del oponente.");
+                        Console.WriteLine("  · Mover a una casilla ocupada por una pieza propia.");
+                        Console.WriteLine("  · Realizar movimientos que no correspondan a la pieza.");
+                        Console.WriteLine("  · Que la Torre salte otras piezas.");
+                        Console.WriteLine();
+                        Console.WriteLine("  PUNTAJE");
+                        Console.WriteLine("  ─────────────────────────────────────────────────────────────");
+                        Console.WriteLine("  · Soldado capturado  →  10 puntos");
+                        Console.WriteLine("  · Torre capturada    →  10 puntos");
+                        Console.WriteLine("  · Rey capturado      →  60 puntos (10 + 50 adicionales)");
+                        Console.WriteLine();
+                        Console.WriteLine("══════════════════════════════════════════════════════════════");
+                        Console.WriteLine();
+                        Console.Write("  Presiona Enter para volver al menú...");
+
+                        Console.ReadKey();
+                        
                         break;
                     case 3:
                         Console.Clear();
