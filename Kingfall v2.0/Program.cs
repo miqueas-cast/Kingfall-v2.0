@@ -80,12 +80,14 @@ namespace Kingfall_v2._0
             do
             {
                 Console.Clear();
-                Console.Beep();
+                
 
                 int opcion = ValidacionEntradas($"Menú:\n1. Iniciar partida\r\n2. Ver reglas del juego\r\n3. Ver puntaje más alto\r\n4. Salir\n> ", 1, 4);
                 switch (opcion)
                 {
                     case 1:
+
+                        
 
                         //Reinicio de puntajes
                         puntajeJugador1 = 0;
@@ -198,6 +200,19 @@ namespace Kingfall_v2._0
                         tablero.Casillas[7, 5] = soldado7;
                         tablero.Casillas[7, 6] = torre3;
 
+                        // sonido de inicio de partida y animación
+                        Console.Clear();
+                        SonidoInicioPartida();
+                        Console.Write("Iniciando partida");
+                        Thread.Sleep(500);
+                        Console.Write(".");
+                        Thread.Sleep(500);
+                        Console.Write(".");
+                        Thread.Sleep(500);
+                        Console.Write(".");
+                        Thread.Sleep(800);
+                        Console.Clear();
+
                         tablero.MostrarTablero(tablero);
 
                         Jugador jugadorActual = jugador1;
@@ -305,6 +320,8 @@ namespace Kingfall_v2._0
 
                                     Console.Clear();
                                     tablero.MostrarTablero(tablero);
+                                    Console.Beep();
+                                    Thread.Sleep(200);
                                     Console.WriteLine($"El jugador {jugadorActual.Nombre} ha ganado porque capturó al Rey");
                                     break;
                                 }
@@ -452,6 +469,15 @@ namespace Kingfall_v2._0
                 }
 
             } while (!salir);
+        }
+
+        // sonidos
+        static void SonidoInicioPartida()
+        {
+            Console.Beep(400, 150);
+            Console.Beep(500, 150);
+            Console.Beep(650, 200);
+            Console.Beep(800, 300);
         }
         static int ValidacionTablero(string mensaje, int min, int max, Tablero tablero)
         {
