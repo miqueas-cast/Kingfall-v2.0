@@ -278,7 +278,8 @@ namespace Kingfall_v2._0
                             //Sistema de puntajes
                             if (piezaCapturada != null)
                             {
-                                Console.WriteLine($"{jugadorActual.Nombre} capturó un {piezaCapturada.Tipo}");
+                                Console.WriteLine($"{jugadorActual.Nombre} capturó un {piezaCapturada.Tipo} del jugador {piezaCapturada.Dueño.Nombre}");
+                                Console.ReadKey();
 
                                 // if para determinar cuantas piezas restantes le quedan al jugador
                                 if (piezaCapturada.Dueño == jugador1)
