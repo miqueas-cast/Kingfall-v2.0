@@ -14,13 +14,13 @@ namespace Kingfall_v2._0
     {
         // constraseñas y usuarios predefinidos para el login
         static string[] usuarios = { "diana", "ivan", "miqueas" };
-        static string[] contrasenas = { "Kingfa!!1", "Jugad0r#2", "Jueg0Kingfa!!" }; 
+        static string[] contrasenas = { "Kingfa!!1", "Jugad0r#2", "Jueg0Kingfa!!"}; 
 
         static void Main(string[] args)
         {  
             // para mostrar flecha en las reglas
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-
+            /*
             Console.WriteLine("   ▄█   ▄█▄  ▄█  ███▄▄▄▄      ▄██████▄     ▄████████    ▄████████  ▄█        ▄█       \r\n  ███ ▄███▀ ███  ███▀▀▀██▄   ███    ███   ███    ███   ███    ███ ███       ███       \r\n  ███▐██▀   ███▌ ███   ███   ███    █▀    ███    █▀    ███    ███ ███       ███       \r\n ▄█████▀    ███▌ ███   ███  ▄███         ▄███▄▄▄       ███    ███ ███       ███       \r\n▀▀█████▄    ███▌ ███   ███ ▀▀███ ████▄  ▀▀███▀▀▀     ▀███████████ ███       ███       \r\n  ███▐██▄   ███  ███   ███   ███    ███   ███          ███    ███ ███       ███       \r\n  ███ ▀███▄ ███  ███   ███   ███    ███   ███          ███    ███ ███▌    ▄ ███▌    ▄ \r\n  ███   ▀█▀ █▀    ▀█   █▀    ████████▀    ███          ███    █▀  █████▄▄██ █████▄▄██ \r\n  ▀                                                               ▀         ▀         ");
             Thread.Sleep(2500);
             Console.Clear();
@@ -66,7 +66,7 @@ namespace Kingfall_v2._0
 
             Console.Clear();
             
-
+            */
             // variables globales
 
             string nombrePuntajeMasAlto = "";
@@ -276,6 +276,7 @@ namespace Kingfall_v2._0
                             //Sistema de puntajes
                             if (piezaCapturada != null)
                             {
+                                Console.Beep();
                                 Console.ForegroundColor = ConsoleColor.Yellow;
                                 Console.WriteLine($"\n⚔️ {jugadorActual.Nombre} capturó un {piezaCapturada.Tipo} de {piezaCapturada.Dueño.Nombre}!");
                                 Console.ResetColor();
