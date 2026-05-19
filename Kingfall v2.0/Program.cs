@@ -572,7 +572,8 @@ namespace Kingfall_v2._0
                 else if (tecla.Key != ConsoleKey.Enter && contra.Length < 13)
                 {
                     contra += tecla.KeyChar;
-                    Console.Write("*");
+
+                    Console.Write("•");
                 }
             } while (tecla.Key != ConsoleKey.Enter);
             Console.WriteLine();
@@ -690,7 +691,19 @@ namespace Kingfall_v2._0
                     }
                     else
                     {
+                        
+                        if (piezaActual.Dueño.Numero == 1)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                        }
+                        else if (piezaActual.Dueño.Numero == 2)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                        }
+
                         Console.Write(piezaActual.Simbolo + "   ");
+
+                        Console.ResetColor();
                     }
                 }
                 Console.WriteLine();
