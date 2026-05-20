@@ -184,21 +184,21 @@ namespace Kingfall_v2._0
 
                         // Posiciones iniciales jugador 1
                         tablero.Casillas[0, 0] = torre;
-                        tablero.Casillas[0, 1] = soldado;
-                        tablero.Casillas[0, 2] = soldado1;
-                        tablero.Casillas[0, 3] = rey;
-                        tablero.Casillas[0, 4] = soldado2;
-                        tablero.Casillas[0, 5] = soldado3;
-                        tablero.Casillas[0, 6] = torre1;
+                        tablero.Casillas[1, 2] = soldado;
+                        tablero.Casillas[2, 3] = soldado1;
+                        tablero.Casillas[1, 3] = rey;
+                        tablero.Casillas[1, 4] = soldado2;
+                        tablero.Casillas[0, 3] = soldado3;
+                        tablero.Casillas[0, 7] = torre1;
 
                         // Posiciones iniciales jugador 2
                         tablero.Casillas[7, 0] = torre2;
-                        tablero.Casillas[7, 1] = soldado4;
-                        tablero.Casillas[7, 2] = soldado5;
-                        tablero.Casillas[7, 3] = rey2;
-                        tablero.Casillas[7, 4] = soldado6;
-                        tablero.Casillas[7, 5] = soldado7;
-                        tablero.Casillas[7, 6] = torre3;
+                        tablero.Casillas[6, 2] = soldado4;
+                        tablero.Casillas[7, 3] = soldado5;
+                        tablero.Casillas[6, 3] = rey2;
+                        tablero.Casillas[6, 4] = soldado6;
+                        tablero.Casillas[5, 3] = soldado7;
+                        tablero.Casillas[7, 7] = torre3;
 
                         // sonido de inicio de partida y animación
                         Console.Clear();
@@ -221,7 +221,22 @@ namespace Kingfall_v2._0
                         {
                             Console.Clear();
                             tablero.MostrarTablero(tablero);
-                            Console.WriteLine("Turno de: " + jugadorActual.Nombre);
+                            Console.ResetColor();
+
+                            Console.Write("Turno de: ");
+
+                            if (jugadorActual.Nombre == "Diana")
+                            {
+                                Console.ForegroundColor = ConsoleColor.Cyan;
+                            }
+                            else if (jugadorActual.Nombre == "Ivan")
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                            }
+
+                            Console.WriteLine(jugadorActual.Nombre);
+                            Console.ResetColor();
+
                             Console.WriteLine();
                             Pieza piezaMover;
 
@@ -230,15 +245,29 @@ namespace Kingfall_v2._0
                             int columnaOrigen;
                             do
                             {
-                                filaOrigen = ValidacionTablero("Fila origen: ", 0, 7, tablero);
-                                columnaOrigen = ValidacionTablero("Columna origen: ", 0, 7, tablero);
+                                filaOrigen = ValidacionTablero("Fila origen: ", 1, 8, tablero)-1;
+                                columnaOrigen = ValidacionTablero("Columna origen: ", 1, 8, tablero)-1;
 
                                 piezaMover = tablero.Casillas[filaOrigen, columnaOrigen];
                                 if (piezaMover == null)
                                 {
                                     Console.Clear();
                                     tablero.MostrarTablero(tablero);
-                                    Console.WriteLine("Turno de: " + jugadorActual.Nombre);
+
+                                    Console.Write("Turno de: ");
+
+                                    if (jugadorActual.Nombre == "Diana")
+                                    {
+                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                    }
+                                    else if (jugadorActual.Nombre == "Ivan")
+                                    {
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                    }
+
+                                    Console.WriteLine(jugadorActual.Nombre);
+                                    Console.ResetColor();
+
                                     Console.WriteLine("No hay pieza en esa posición");
 
                                     continue;
@@ -257,14 +286,17 @@ namespace Kingfall_v2._0
                             int columnaDestino;
                             do
                             {
-                                filaDestino = ValidacionTablero("Fila destino:", 0, 7, tablero);
-                                columnaDestino = ValidacionTablero("Columna destino:", 0, 7, tablero);
+                                filaDestino = ValidacionTablero("Fila destino:", 1, 8, tablero)-1;
+                                columnaDestino = ValidacionTablero("Columna destino:", 1, 8, tablero)-1;
 
                                 Pieza piezaDestino = tablero.Casillas[filaDestino, columnaDestino];
                                 if (piezaDestino != null && piezaDestino.Dueño == jugadorActual)
                                 {
-                                    Console.WriteLine("No puedes moverte sobre tu propia pieza");
-                                    Console.ReadKey();
+                                    Console.WriteLine("No puedes moverte sobre tu propia pieza\n");
+                                    Thread.Sleep(1500);
+                                    Console.Clear();
+                                    tablero.MostrarTablero(tablero);
+                                   
                                     continue;
                                 }
                                 break;
@@ -295,7 +327,7 @@ namespace Kingfall_v2._0
                                 Console.ForegroundColor = ConsoleColor.Yellow;
                                 Console.WriteLine($"\n⚔️ {jugadorActual.Nombre} capturó un {piezaCapturada.Tipo} de {piezaCapturada.Dueño.Nombre}!");
                                 Console.ResetColor();
-                                Console.ReadKey();
+                                Thread.Sleep(1000);
 
                                 // if para determinar cuantas piezas restantes le quedan al jugador
                                 if (piezaCapturada.Dueño == jugador1)
@@ -323,6 +355,7 @@ namespace Kingfall_v2._0
                                     Console.Beep();
                                     Thread.Sleep(200);
                                     Console.WriteLine($"El jugador {jugadorActual.Nombre} ha ganado porque capturó al Rey");
+                                    Console.ReadKey();
                                     break;
                                 }
                                 else
@@ -341,6 +374,7 @@ namespace Kingfall_v2._0
                                 {
                                     Console.Clear();
                                     tablero.MostrarTablero(tablero);
+
                                     Console.WriteLine($"El jugador {jugador2.Nombre} ha ganado la partida");
                                     break;
                                 }
@@ -671,7 +705,7 @@ namespace Kingfall_v2._0
             Console.Write("    ");
             for (int columna = 0; columna < 8; columna++)
             {
-                Console.Write($"{columna}   ");
+                Console.Write($"{columna + 1}   ");
             }
 
             Console.WriteLine();
@@ -679,7 +713,7 @@ namespace Kingfall_v2._0
 
             for (int fila = 0; fila < 8; fila++)
             {
-                Console.Write(fila + "   ");
+                Console.Write((fila + 1) + "   ");
 
                 for (int columna = 0; columna < 8; columna++)
                 {
