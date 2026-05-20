@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
 namespace Kingfall_v2._0
 {
     internal class Program
@@ -14,11 +13,10 @@ namespace Kingfall_v2._0
         // constraseñas y usuarios predefinidos para el login
         static string[] usuarios = { "Diana", "Ivan"};
         static string[] contrasenas = { "Kingfa!!1", "Jugad0r#2"}; 
-
         static void Main(string[] args)
         {  
             // para mostrar flecha en las reglas
-            
+
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             
             Console.WriteLine("   ▄█   ▄█▄  ▄█  ███▄▄▄▄      ▄██████▄     ▄████████    ▄████████  ▄█        ▄█       \r\n  ███ ▄███▀ ███  ███▀▀▀██▄   ███    ███   ███    ███   ███    ███ ███       ███       \r\n  ███▐██▀   ███▌ ███   ███   ███    █▀    ███    █▀    ███    ███ ███       ███       \r\n ▄█████▀    ███▌ ███   ███  ▄███         ▄███▄▄▄       ███    ███ ███       ███       \r\n▀▀█████▄    ███▌ ███   ███ ▀▀███ ████▄  ▀▀███▀▀▀     ▀███████████ ███       ███       \r\n  ███▐██▄   ███  ███   ███   ███    ███   ███          ███    ███ ███       ███       \r\n  ███ ▀███▄ ███  ███   ███   ███    ███   ███          ███    ███ ███▌    ▄ ███▌    ▄ \r\n  ███   ▀█▀ █▀    ▀█   █▀    ████████▀    ███          ███    █▀  █████▄▄██ █████▄▄██ \r\n  ▀                                                               ▀         ▀         ");
@@ -247,7 +245,6 @@ namespace Kingfall_v2._0
                             Console.ResetColor();
 
                             Console.Write("Turno de: " + jugadorActual.Nombre);
-
 
                             Console.ResetColor();
 
@@ -647,6 +644,7 @@ namespace Kingfall_v2._0
         public char Simbolo;
         public Jugador Dueño;
 
+        // Funciones para validar el movimiento por pieza
         public bool MovimientoValidoPorTipo(int filaOrigen, int columnaOrigen, int filaDestino, int columnaDestino, Tablero tablero)
         {
             if (Tipo == "Rey")
@@ -763,6 +761,8 @@ namespace Kingfall_v2._0
                 Console.WriteLine();
             }
         }
+
+        // Determinar fila libre para torre
         public bool CaminoLibre(int filaOrigen, int columnaOrigen, int filaDestino, int columnaDestino)
         {
             int avanceFila = 0;
