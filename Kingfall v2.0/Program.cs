@@ -12,8 +12,8 @@ namespace Kingfall_v2._0
     internal class Program
     {
         // constraseñas y usuarios predefinidos para el login
-        static string[] usuarios = { "Diana", "Ivan", "miqueas" };
-        static string[] contrasenas = { "Kingfa!!1", "Jugad0r#2", "Jueg0Kingfa!!"}; 
+        static string[] usuarios = { "Diana", "Ivan"};
+        static string[] contrasenas = { "Kingfa!!1", "Jugad0r#2"}; 
 
         static void Main(string[] args)
         {  
@@ -98,7 +98,6 @@ namespace Kingfall_v2._0
                         //Reinicio de puntajes
                         puntajeJugador1 = 0;
                         puntajeJugador2 = 0;
-                        nombrePuntajeMasAlto = "";
                         piezasRestantesJugador1 = 7;
                         piezasRestantesJugador2 = 7;
 
