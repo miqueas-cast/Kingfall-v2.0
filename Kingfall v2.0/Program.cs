@@ -189,7 +189,7 @@ namespace Kingfall_v2._0
                         tablero.Casillas[0, 3] = rey;
                         tablero.Casillas[1, 4] = soldado2;
                         tablero.Casillas[2, 3] = soldado3;
-                        tablero.Casillas[7, 7] = torre1;
+                        tablero.Casillas[0, 7] = torre1;
 
                         // Posiciones iniciales jugador 2
                         tablero.Casillas[7, 0] = torre2;
@@ -198,7 +198,7 @@ namespace Kingfall_v2._0
                         tablero.Casillas[7, 3] = rey2;
                         tablero.Casillas[6, 4] = soldado6;
                         tablero.Casillas[5, 3] = soldado7;
-                        tablero.Casillas[0, 7] = torre3;
+                        tablero.Casillas[7, 7] = torre3;
 
                         // sonido de inicio de partida y animación
                         Console.Clear();
