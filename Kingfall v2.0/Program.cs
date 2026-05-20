@@ -13,12 +13,13 @@ namespace Kingfall_v2._0
     internal class Program
     {
         // constraseñas y usuarios predefinidos para el login
-        static string[] usuarios = { "diana", "ivan", "miqueas" };
+        static string[] usuarios = { "Diana", "Ivan", "miqueas" };
         static string[] contrasenas = { "Kingfa!!1", "Jugad0r#2", "Jueg0Kingfa!!"}; 
 
         static void Main(string[] args)
         {  
             // para mostrar flecha en las reglas
+            
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             
             Console.WriteLine("   ▄█   ▄█▄  ▄█  ███▄▄▄▄      ▄██████▄     ▄████████    ▄████████  ▄█        ▄█       \r\n  ███ ▄███▀ ███  ███▀▀▀██▄   ███    ███   ███    ███   ███    ███ ███       ███       \r\n  ███▐██▀   ███▌ ███   ███   ███    █▀    ███    █▀    ███    ███ ███       ███       \r\n ▄█████▀    ███▌ ███   ███  ▄███         ▄███▄▄▄       ███    ███ ███       ███       \r\n▀▀█████▄    ███▌ ███   ███ ▀▀███ ████▄  ▀▀███▀▀▀     ▀███████████ ███       ███       \r\n  ███▐██▄   ███  ███   ███   ███    ███   ███          ███    ███ ███       ███       \r\n  ███ ▀███▄ ███  ███   ███   ███    ███   ███          ███    ███ ███▌    ▄ ███▌    ▄ \r\n  ███   ▀█▀ █▀    ▀█   █▀    ████████▀    ███          ███    █▀  █████▄▄██ █████▄▄██ \r\n  ▀                                                               ▀         ▀         ");
@@ -99,86 +100,104 @@ namespace Kingfall_v2._0
                         //Creación del tablero 
                         Tablero tablero = new Tablero();
 
+                        
+
                         // jugador1 piezas
                         Jugador jugador1 = new Jugador();
+                        if (usuario == "Diana")
+                        {
+                            jugador1.Nombre = usuario;
+                        }
+                        else if (usuario == "Ivan")
+                        {
+                            jugador1.Nombre = usuario;
+                        }
 
-                        jugador1.Nombre = "Diana";
+                        
                         jugador1.Numero = 1;
 
                         Pieza rey = new Pieza();
                         rey.Tipo = "Rey";
-                        rey.Simbolo = 'r';
+                        rey.Simbolo = '♔';
                         rey.Dueño = jugador1;
 
                         Pieza torre = new Pieza();
                         torre.Tipo = "Torre";
-                        torre.Simbolo = 't';
+                        torre.Simbolo = '♖';
                         torre.Dueño = jugador1;
 
                         Pieza torre1 = new Pieza();
                         torre1.Tipo = "Torre";
-                        torre1.Simbolo = 't';
+                        torre1.Simbolo = '♖';
                         torre1.Dueño = jugador1;
 
                         Pieza soldado = new Pieza();
                         soldado.Tipo = "Soldado";
-                        soldado.Simbolo = 's';
+                        soldado.Simbolo = '♙';
                         soldado.Dueño = jugador1;
 
                         Pieza soldado1 = new Pieza();
                         soldado1.Tipo = "Soldado";
-                        soldado1.Simbolo = 's';
+                        soldado1.Simbolo = '♙';
                         soldado1.Dueño = jugador1;
 
                         Pieza soldado2 = new Pieza();
                         soldado2.Tipo = "Soldado";
-                        soldado2.Simbolo = 's';
+                        soldado2.Simbolo = '♙';
                         soldado2.Dueño = jugador1;
 
                         Pieza soldado3 = new Pieza();
                         soldado3.Tipo = "Soldado";
-                        soldado3.Simbolo = 's';
+                        soldado3.Simbolo = '♙';
                         soldado3.Dueño = jugador1;
 
 
                         // jugador 2
                         Jugador jugador2 = new Jugador();
-                        jugador2.Nombre = "Ivan";
+                        if (jugador1.Nombre == "Diana")
+                        {
+                            jugador2.Nombre = "Ivan";
+                        }
+                        else if (jugador1.Nombre == "Ivan")
+                        {
+                            jugador2.Nombre = "Diana";
+                        }
+
                         jugador2.Numero = 2;
 
                         Pieza rey2 = new Pieza();
                         rey2.Tipo = "Rey";
-                        rey2.Simbolo = 'R';
+                        rey2.Simbolo = '♚';
                         rey2.Dueño = jugador2;
 
                         Pieza torre2 = new Pieza();
                         torre2.Tipo = "Torre";
-                        torre2.Simbolo = 'T';
+                        torre2.Simbolo = '♜';
                         torre2.Dueño = jugador2;
 
                         Pieza torre3 = new Pieza();
                         torre3.Tipo = "Torre";
-                        torre3.Simbolo = 'T';
+                        torre3.Simbolo = '♜';
                         torre3.Dueño = jugador2;
 
                         Pieza soldado4 = new Pieza();
                         soldado4.Tipo = "Soldado";
-                        soldado4.Simbolo = 'S';
+                        soldado4.Simbolo = '♙';
                         soldado4.Dueño = jugador2;
 
                         Pieza soldado5 = new Pieza();
                         soldado5.Tipo = "Soldado";
-                        soldado5.Simbolo = 'S';
+                        soldado5.Simbolo = '♙';
                         soldado5.Dueño = jugador2;
 
                         Pieza soldado6 = new Pieza();
                         soldado6.Tipo = "Soldado";
-                        soldado6.Simbolo = 'S';
+                        soldado6.Simbolo = '♙';
                         soldado6.Dueño = jugador2;
 
                         Pieza soldado7 = new Pieza();
                         soldado7.Tipo = "Soldado";
-                        soldado7.Simbolo = 'S';
+                        soldado7.Simbolo = '♙';
                         soldado7.Dueño = jugador2;
 
 
@@ -223,18 +242,9 @@ namespace Kingfall_v2._0
                             tablero.MostrarTablero(tablero);
                             Console.ResetColor();
 
-                            Console.Write("Turno de: ");
+                            Console.Write("Turno de: " + jugadorActual.Nombre);
 
-                            if (jugadorActual.Nombre == "Diana")
-                            {
-                                Console.ForegroundColor = ConsoleColor.Cyan;
-                            }
-                            else if (jugadorActual.Nombre == "Ivan")
-                            {
-                                Console.ForegroundColor = ConsoleColor.Red;
-                            }
 
-                            Console.WriteLine(jugadorActual.Nombre);
                             Console.ResetColor();
 
                             Console.WriteLine();
